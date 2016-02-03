@@ -39,5 +39,15 @@ Run the following command to restart trafficserver.
 systemctl restart trafficserver
 ```
 
+## Cache lookup result header values
+
+The value of cache lookup result header is one of the following:
+
+* MISS
+* HIT_FRESH
+* HIT_STALE
+
+This value is retrieved with [TSHttpTxnCacheLookupStatusGet](https://github.com/apache/trafficserver/blob/6.1.0/proxy/InkAPI.cc#L4753-L4781)
+
 ## License
 Apache License 2.0
