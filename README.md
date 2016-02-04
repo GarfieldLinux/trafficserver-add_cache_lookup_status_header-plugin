@@ -46,8 +46,10 @@ The value of cache lookup result header is one of the following:
 * MISS
 * HIT_FRESH
 * HIT_STALE
+* SKIPPED
 
-This value is retrieved with [TSHttpTxnCacheLookupStatusGet](https://github.com/apache/trafficserver/blob/6.1.0/proxy/InkAPI.cc#L4753-L4781)
+This value is retrieved with [TSHttpTxnCacheLookupStatusGet](https://github.com/apache/trafficserver/blob/6.1.0/proxy/InkAPI.cc#L4753-L4781).
+The cache hit ratio of multiple requests is calculated by (count-of-HIT_FRESH) / (count-of-HIT_FRESH + count-of-HIT_STALE + count-of-MISS).
 
 ## License
 Apache License 2.0
