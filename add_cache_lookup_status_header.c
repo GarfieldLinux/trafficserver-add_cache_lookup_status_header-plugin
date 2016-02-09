@@ -51,8 +51,9 @@ add_cache_lookup_status_header(TSHttpTxn txnp, TSCont contp)
 
   retval = TSHttpTxnCacheLookupStatusGet(txnp, &lookup_status);
   if (retval != TS_SUCCESS) {
-    TSError("[%s] Unable to get cache lookup status", PLUGIN_NAME);
-    goto error;
+    TSDebug(PLUGIN_NAME, "Unable to get cache lookup status");
+	// NOTE: This is not an error but a normal case (for example the healthcheck plugin).
+    goto done;
   }
   switch (lookup_status) {
   case TS_CACHE_LOOKUP_MISS:
